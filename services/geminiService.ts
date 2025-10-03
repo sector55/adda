@@ -2,6 +2,7 @@
 import { GoogleGenAI, Type, Chat } from "@google/genai";
 import type { QuizAnswers, ScentProfile, ChatMessage, Perfume } from '../types';
 
+// FIX: The API key must be obtained from process.env.API_KEY as per the coding guidelines.
 if (!process.env.API_KEY) {
   throw new Error("API_KEY environment variable not set");
 }
