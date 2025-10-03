@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add a Perfume - AI Scent Advisor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #0d0c1d;
+        overflow-x: hidden;
+      }
+      h1, h2, h3, h4, h5, h6, .font-serif {
+        font-family: 'Cormorant Garamond', serif;
+      }
+      .background-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+      #background-gradient {
+        background: radial-gradient(ellipse at 70% 80%, rgba(75, 0, 130, 0.15), transparent 50%),
+                    radial-gradient(ellipse at 20% 30%, rgba(0, 200, 255, 0.1), transparent 50%);
+      }
+      .particles {
+        background-repeat: repeat;
+        opacity: 0.3;
+      }
+      #particles-slow {
+        background-image:
+            radial-gradient(circle at center, rgba(180, 190, 255, 0.5) 0, transparent 1px);
+        background-size: 150px 150px;
+        background-position: 0 0;
+        animation: drift 120s linear infinite;
+      }
+      #particles-fast {
+        background-image:
+            radial-gradient(circle at center, rgba(190, 210, 255, 0.4) 0, transparent 1px);
+        background-size: 100px 100px;
+        background-position: 25px 25px;
+        animation: drift 80s linear infinite reverse;
+      }
+      @keyframes drift {
+        from {
+            transform: translate(0, 0);
+        }
+        to {
+            transform: translate(-200px, 200px);
+        }
+      }
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-15px); }
+        100% { transform: translateY(0px); }
+      }
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+      @keyframes pulse-subtle {
+        50% {
+          opacity: .7;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.16.0"
+  }
+}
+</script>
+<!-- Add Babel Standalone for in-browser transpilation -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+  <body class="text-gray-200">
+    <div id="background-gradient" class="background-animation"></div>
+    <div id="particles-slow" class="background-animation particles"></div>
+    <div id="particles-fast" class="background-animation particles"></div>
+    <div id="root"></div>
+    <!-- Change script type to text/babel to be processed by Babel Standalone -->
+    <script type="text/babel" data-type="module" src="/index.tsx"></script>
+  </body>
+</html>
