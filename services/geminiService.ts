@@ -1,13 +1,9 @@
-
 import { GoogleGenAI, Type, Chat } from "@google/genai";
 import type { QuizAnswers, ScentProfile, ChatMessage, Perfume } from '../types';
 
-// FIX: The API key must be obtained from process.env.API_KEY as per the coding guidelines.
-if (!process.env.API_KEY) {
-  throw new Error("API_KEY environment variable not set");
-}
-
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// FIX: Per @google/genai guidelines, the API key must be obtained from process.env.API_KEY.
+// The key's availability is assumed to be handled externally.
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY! });
 let chatInstance: Chat | null = null;
 
 const scentProfileSchema = {
