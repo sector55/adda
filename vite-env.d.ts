@@ -1,3 +1,2 @@
-// FIX: The original content '/// <reference types="vite/client" />' was causing a type error.
-// Since the code was updated to use `process.env` instead of `import.meta.env` for the API key,
-// this type reference is no longer needed.
+// FIX: Removed the reference to 'vite/client' as it was causing a type definition error
+// and is no longer necessary after switching to process.env for environment variables.

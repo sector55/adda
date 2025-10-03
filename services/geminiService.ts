@@ -1,9 +1,9 @@
 import { GoogleGenAI, Type, Chat } from "@google/genai";
 import type { QuizAnswers, ScentProfile, ChatMessage, Perfume } from '../types';
 
-// FIX: Per @google/genai guidelines, the API key must be obtained from process.env.API_KEY.
-// The key's availability is assumed to be handled externally.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY! });
+// Access the API key from environment variables.
+// FIX: Use process.env.API_KEY as per the coding guidelines, instead of Vite-specific import.meta.env.
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 let chatInstance: Chat | null = null;
 
 const scentProfileSchema = {
